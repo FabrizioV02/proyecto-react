@@ -10,5 +10,4 @@ function App() {
     <h2>Tienda React</h2>
   </>;
 }
-
 export default App;
