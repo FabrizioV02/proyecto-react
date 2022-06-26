@@ -10,7 +10,7 @@ function App() {
 
     
     <Navbar />
-    <Itemlistcontainer/>
+    <Itemlistcontainer mensaje="Aca va a ir nuestro catalogo" />
   </>;
 }
 
