@@ -1,7 +1,28 @@
-const Itemlistcontainer = (props) => {
-    return(
+import ItemCount from "./ItemCount"
 
-        <h3>{props.mensaje}</h3>
+
+const Itemlistcontainer = (prop) => {
+
+    const onAdd= () => {
+
+        alert(`Se añadio al carrito`)
+
+    }
+
+
+
+
+
+
+
+
+
+    return(
+        <>
+            <h3>{prop.mensaje}</h3>
+            <ItemCount initial ={1} stock={5} onAdd={onAdd} />
+        </>
+        
     )
 }
 
