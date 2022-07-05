@@ -1,29 +1,70 @@
-import ItemCount from "./ItemCount"
+import React, { useEffect, useState } from "react";
+import instrumentos from "../../data/datos";
+import ItemList from "./ItemList";
+
+
+const promise = new Promise((res, rej) => {
+    setTimeout(() => {
+      res(instrumentos);
+    }, 2000);
+  });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const Itemlistcontainer = (prop) => {
-
-    const onAdd= () => {
-
-        alert(`Se añadio al carrito`)
-
-    }
-
-
-
-
-
-
-
-
-
-    return(
+    const [instrumentList, setInstrumentList] = useState([]);
+    const [loading, setLoading] = useState(false);
+  
+    useEffect(() => {
+      setLoading(true);
+      promise.then((response) => {
+        setLoading(false);
+        setInstrumentList(response);
+      });
+    }, []);
+  
+    if (loading) {
+      return (
         <>
-            <h3>{prop.mensaje}</h3>
-            <ItemCount initial ={1} stock={5} onAdd={onAdd} />
+          <h1>Cargando...</h1>
         </>
+      );
+    }
+    return (
         
-    )
+      <div>
+        <ItemList instruments={instrumentList} />
+      </div>
+      
+    );
 }
 
 export default Itemlistcontainer
