@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
-import instrumentos from "../../data/datos";
-import ItemList from "./ItemList";
+import ItemDetail from "./ItemDetail";
 
-
-const promise = new Promise((res, rej) => {
-    setTimeout(() => {
-      res(instrumentos);
-    }, 2000);
-  });
-
-const Itemlistcontainer = () => {
+const ItemDetailContainer = () => {
     const [instrumentList, setInstrumentList] = useState([]);
     const [loading, setLoading] = useState(false);
   
@@ -31,10 +23,18 @@ const Itemlistcontainer = () => {
     return (
         
       <div>
-        <ItemList instruments={instrumentList} />
+        <ItemDetail instruments={instrumentList} />
       </div>
       
     );
 }
 
-export default Itemlistcontainer
+export default ItemDetailContainer
+
+
+
+
+
+
+
+  
