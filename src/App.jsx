@@ -6,10 +6,11 @@ import Itemlistcontainer from './containers/ItemListContainer/ItemListContainer'
 
 function App() {
   return <>
-    <h2>Tienda React</h2>
-
-    
     <Navbar />
+    <div className='my-10'>
+      <h2 className='h2-products text-3xl text-center font bold uppercase'>Productos</h2>
+    </div>
+    
     <Itemlistcontainer mensaje="Aca va a ir nuestro catalogo" />
   </>;
 }

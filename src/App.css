@@ -1,8 +1,3 @@
-.Cart-Icon{
-  height: 50px;
-}
+/*MONTSERRAT*/
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@700&display=swap');
 
-.contador-controles{
-  display: flex;
-  gap: 10px
-}

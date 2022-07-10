@@ -1,9 +1,9 @@
-import Cart from '../../assets/img/Cart.png'
+import Cart from '../../assets/img/Cart-modified.png'
 
 const Cartwidget = () => {
     return (
       <a href="#">
-        <img className='Cart-Icon' src={Cart}/>
+        <img className='h-8 w-9' src={Cart}/>
       </a>
     );
   };

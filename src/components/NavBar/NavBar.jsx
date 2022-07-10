@@ -1,26 +1,31 @@
 import Cartwidget from '../CartWidget/CartWidget';
+import Logo from '../Brand/Brand';
+
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
+    <nav className='flex justify-center items-center bg-black text-white h-20'>
+      <div className='flex w-11/12 justify-between items-center'>
+      <Logo/>
+      <ul className='flex gap-6'>
         <li>
-          <a href="#">1</a>
+          <a href="#" className='uppercase'>Inicio</a>
         </li>
         <li>
-          <a href="#">2</a>
+          <a href="#" className='uppercase'>Productos</a>
         </li>
         <li>
-          <a href="#">3</a>
+          <a href="#" className='uppercase'>Contacto</a>
         </li>
         <li>
-          <a href="#">4</a>
+          <a href="#" className='uppercase'>Nosotros</a>
         </li>
         <li>
-          <a href="#">5</a>
+          <a href="#" className='uppercase'>Ubicacion</a>
         </li>
       </ul>
       <Cartwidget/>
+      </div>    
     </nav>
   );
 };
