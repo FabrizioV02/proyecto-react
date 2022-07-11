@@ -3,6 +3,7 @@ import instrumentos from "../../data/datos";
 import ItemList from "./ItemList";
 
 
+
 const promise = new Promise((res, rej) => {
     setTimeout(() => {
       res(instrumentos);
@@ -10,14 +11,14 @@ const promise = new Promise((res, rej) => {
   });
 
 const Itemlistcontainer = () => {
-    const [instrumentList, setInstrumentList] = useState([]);
+    const [instrumentsList, setInstrumentsList] = useState([]);
     const [loading, setLoading] = useState(false);
   
     useEffect(() => {
       setLoading(true);
       promise.then((response) => {
         setLoading(false);
-        setInstrumentList(response);
+        setInstrumentsList(response);
       });
     }, []);
   
@@ -31,7 +32,7 @@ const Itemlistcontainer = () => {
     return (
         
       <div>
-        <ItemList instruments={instrumentList} />
+        <ItemList instruments={instrumentsList} />
       </div>
       
     );
