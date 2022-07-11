@@ -1,38 +1,35 @@
-import React, { useEffect, useState } from "react";
-import instrumentos from "../../data/datos";
-import ItemDetail from "./ItemDetail";
+import React, { useState, useEffect } from "react";
+import ItemDetail from './ItemDetail';
 
-const promesa = new Promise((res) => {
-    setTimeout(() => {
-      res(instrumentos);
-    }, 2000);
-  });
 
 const ItemDetailContainer = () => {
-    const [instrument, setInstrument] = useState([]);
-    const [loading, setLoading] = useState(false);
-  
-    useEffect(() => {
-      promesa.then((response) => {
-        setLoading(false);
-        setInstrument(response);
-      });
-    }, []);
-  
-    if (loading) {
-      return (
-        <>
-          <h1>Cargando...</h1>
+ const [detail, setDetail] = useState([]);
+ const [error, setError] = useState(false);
+ const [loading, setLoading] = useState (true);
+ 
+ useEffect(() =>{
+   const getDetail = async () =>{
+   try {const response = await fetch('https://fakestoreapi.com/products');
+     const data = await response.json();
+     setDetail(data);}
+     catch(err) {
+       console.log(err);
+       setError(true);
+     }
+     finally{
+       setLoading(false);
+     }
+   }
+   getDetail();
+ },[]);
+
+    return(
+        <>{loading ? <p>cargando detalles...</p> : error ? <p>Error 404</p> : 'Todo bien'}
+        <ItemDetail detail={detail} />
         </>
-      );
-    }
-    return (
         
-      <>
-        <ItemDetail instrument={instrument} />
-      </>
-      
-    );
+    )
 }
+
 
 export default ItemDetailContainer

@@ -1,39 +1,40 @@
-import React, { useEffect, useState } from "react";
-import instrumentos from "../../data/datos";
-import ItemList from "./ItemList";
+import React, { useState, useEffect } from "react";
+import Itemlist from "./ItemList";
 
-const promise = new Promise((res) => {
-    setTimeout(() => {
-      res(instrumentos);
-    }, 2000);
-  });
-
-const Itemlistcontainer = () => {
-    const [instrumentsList, setInstrumentsList] = useState([]);
-    const [loading, setLoading] = useState(false);
-  
-    useEffect(() => {
-      setLoading(true);
-      promise.then((response) => {
-        setLoading(false);
-        setInstrumentsList(response);
-      });
-    }, []);
-  
-    if (loading) {
-      return (
-        <>
-          <h1>Cargando...</h1>
-        </>
-      );
-    }
-    return (
+const ItemListContainer =  (prop) => {
+    const { name } = prop;
+    const [productos, setProductos] = useState([]);
+    const [error, setError] = useState (false);
+    const [loading, setLoading] = useState (true);
+    
+    useEffect(() =>{
+      const getProducts = async () =>{
+      try {const response = await fetch('https://fakestoreapi.com/products');
+           const data = await response.json();
+           setProductos(data);
+          }
+        catch(err) {
+          console.log(err);
+          setError(true);
+        }
+        finally{
+          setLoading(false);
+        }
         
-      <div>
-        <ItemList instruments={instrumentsList} />
-      </div>
-      
-    );
+      }
+      getProducts();
+    },[]);
+
+   
+    return (
+        <>
+        <h2 className="h2-products text-center text-3xl" >
+          {name} 
+        </h2>
+        {loading ? <p>cargando productos...</p> : error ? <p>Error....</p> : <p></p>}
+        <Itemlist productos={productos}/>
+        </>
+    )
 }
 
-export default Itemlistcontainer
+export default ItemListContainer

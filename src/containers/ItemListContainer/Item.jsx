@@ -1,15 +1,20 @@
 import React from "react";
 
- function item({ prod }) {
-  return (
-    <div className="container">
-        <img className="w-20" src={prod.image} alt="" />
-        <h4>{prod.nombre}</h4>
-        <p>{prod.precio}</p>
-        
-    </div>
+const Item = ({producto}) => {
 
-  )
+    return (
+
+     <div key={producto.id}>
+     <h2>{producto.title}</h2>
+ 
+     <div>
+        <p>${producto.price}</p>
+        <p>{producto.description}</p>
+     </div>
+ 
+   </div>
+
+)
 }
 
-export default item
+export default Item
