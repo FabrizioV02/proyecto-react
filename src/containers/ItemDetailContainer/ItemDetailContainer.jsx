@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import instrumentos from "../../data/datos";
 import ItemDetail from "./ItemDetail";
 
-const promesa = new Promise((res, rej) => {
+
+
+const promise = new Promise((res, rej) => {
     setTimeout(() => {
       res(instrumentos);
     }, 2000);
   });
 
-const Itemlistcontainer = () => {
+const ItemDetailContainer = () => {
     const [instrumentList, setInstrumentList] = useState([]);
     const [loading, setLoading] = useState(false);
   
     useEffect(() => {
       setLoading(true);
-      promesa.then((response) => {
+      promise.then((response) => {
         setLoading(false);
         setInstrumentList(response);
       });
@@ -36,4 +38,4 @@ const Itemlistcontainer = () => {
     );
 }
 
-export default Itemlistcontainer
+export default ItemDetailContainer
