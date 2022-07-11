@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import instrumentos from "../../data/datos";
 import ItemList from "./ItemList";
 
-
-
-const promise = new Promise((res, rej) => {
+const promise = new Promise((res) => {
     setTimeout(() => {
       res(instrumentos);
     }, 2000);

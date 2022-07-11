@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/NavBar/NavBar';
-import Itemlistcontainer from './containers/ItemListContainer/ItemListContainer'
+import Itemlistcontainer from './containers/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     </div>
     
     <Itemlistcontainer mensaje="Aca va a ir nuestro catalogo" />
+    <ItemDetailContainer/>
   </>;
 }
 
