@@ -1,31 +1,26 @@
-import Cartwidget from '../CartWidget/CartWidget';
-import Logo from '../Brand/Brand';
-
+import Cartwidget from "../CartWidget/CartWidget";
+import Logo from "../Brand/Brand";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const categories = [
+    { name: "electronics", id: 0, route: "/category/electronics" },
+    { name: "jewelery", id: 1, route: "/category/jewelery" },
+    { name: "men's clothing", id: 2, route: "/category/men's clothing" },
+    { name: "women's clothing", id: 3, route: "/category/women's clothing" },
+  ];
+
   return (
-    <nav className='flex justify-center items-center bg-black text-white h-20'>
-      <div className='flex w-11/12 justify-between items-center'>
-      <Logo/>
-      <ul className='flex gap-6'>
-        <li>
-          <a href="#" className='uppercase'>Inicio</a>
-        </li>
-        <li>
-          <a href="#" className='uppercase'>Productos</a>
-        </li>
-        <li>
-          <a href="#" className='uppercase'>Contacto</a>
-        </li>
-        <li>
-          <a href="#" className='uppercase'>Nosotros</a>
-        </li>
-        <li>
-          <a href="#" className='uppercase'>Ubicacion</a>
-        </li>
-      </ul>
-      <Cartwidget/>
-      </div>    
+    <nav className="flex justify-center items-center bg-black text-white h-20">
+      <div className="flex w-11/12 justify-between items-center">
+        <Logo />
+        {categories.map((category) => (
+          <NavLink className='flex gap-6 uppercase' key={category.id}  to={category.route}>
+            {category.name}
+          </NavLink>
+        ))}
+        <Link to="/Cartwidget"><Cartwidget/></Link>
+      </div>
     </nav>
   );
 };
