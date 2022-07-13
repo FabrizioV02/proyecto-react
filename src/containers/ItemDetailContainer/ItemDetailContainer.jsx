@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
  },[Id]);
 
     return(
-        <>{loading ? <p>cargando detalles...</p> : <ItemDetail detail={detail}/>}
+        <>{loading ? <p className="text-center uppercase text-5xl mt-40">Loading...</p> : <ItemDetail detail={detail}/>}
          
         </>
         
