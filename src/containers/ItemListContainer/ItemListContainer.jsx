@@ -3,17 +3,20 @@ import Itemlist from "./ItemList";
 import { useParams } from 'react-router-dom';
 
 const ItemListContainer =  (prop) => {
+
+  const { categoryId } = useParams();
+
     const { name } = prop;
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState (false);
     const [loading, setLoading] = useState (true);
 
-    const { categoryId } = useParams();
+    
     
     useEffect(() =>{
 
       const URL = categoryId
-      ? `https://fakestoreapi.com/products/category/${categoryId}`
+      ?  `https://fakestoreapi.com/products/category/${categoryId}`
       : 'https://fakestoreapi.com/products'
 
 

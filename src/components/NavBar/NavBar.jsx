@@ -19,7 +19,7 @@ const Navbar = () => {
             {category.name}
           </NavLink>
         ))}
-        <Link to="/Cartwidget"><Cartwidget/></Link>
+        <Link to="/Cart"><Cartwidget/></Link>
       </div>
     </nav>
   );

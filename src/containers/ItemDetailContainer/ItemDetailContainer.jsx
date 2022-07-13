@@ -8,11 +8,11 @@ const ItemDetailContainer = () => {
  const [error, setError] = useState(false);
  const [loading, setLoading] = useState (true);
  
- const { productId } = useParams();
+ const { itemId } = useParams();
 
  useEffect(() =>{
    const getDetail = async () =>{
-   try {const response = await fetch('https://fakestoreapi.com/products');
+   try {const response = await fetch(`https://fakestoreapi.com/products/${itemId}`);
      const data = await response.json();
      setDetail(data);}
      catch(err) {
@@ -24,11 +24,11 @@ const ItemDetailContainer = () => {
      }
    }
    getDetail();
- },[productId]);
+ },[itemId]);
 
     return(
         <>{loading ? <p>cargando detalles...</p> : error ? <p>Error 404</p> : 'Todo bien'}
-        <ItemDetail detail={detail} />
+          {detail.map(detail => <ItemDetail key={detail.id} detail={detail}/>)}
         </>
         
     )
