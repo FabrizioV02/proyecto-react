@@ -1,0 +1,8 @@
+.products-container{
+    background-color: #fff;
+    
+}
+
+.products.products-container :hover{
+    background-color: gray;
+}

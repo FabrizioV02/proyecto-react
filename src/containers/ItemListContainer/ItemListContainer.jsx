@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Itemlist from "./ItemList";
 import { useParams } from 'react-router-dom';
 
+
 const ItemListContainer =  (prop) => {
 
   const { categoryId } = useParams();
@@ -40,7 +41,7 @@ const ItemListContainer =  (prop) => {
    
     return (
         <>
-        <h2 className="h2-products text-center text-3xl" >
+        <h2 className="h2-products text-center text-3xl mt-20  mb-40" >
           {name} 
         </h2>
         {loading ? <p>cargando productos...</p> : error ? <p>Error....</p> : <p></p>}
