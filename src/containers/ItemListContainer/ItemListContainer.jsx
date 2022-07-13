@@ -44,7 +44,7 @@ const ItemListContainer =  (prop) => {
         <h2 className="h2-products text-center text-3xl mt-20  mb-40" >
           {name} 
         </h2>
-        {loading ? <p>cargando productos...</p> : error ? <p>Error....</p> : <p></p>}
+        {loading ? <p className="text-center uppercase text-5xl">Loading...</p> : error ? <p>Error....</p> : <p></p>}
         <Itemlist productos={productos}/>
         </>
     )

@@ -5,14 +5,14 @@ import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
  const [detail, setDetail] = useState([]);
- const [error, setError] = useState(false);
+ const [setError] = useState(false);
  const [loading, setLoading] = useState (true);
  
- const { itemId } = useParams();
+ const { Id } = useParams();
 
  useEffect(() =>{
    const getDetail = async () =>{
-   try {const response = await fetch(`https://fakestoreapi.com/products/${itemId}`);
+   try {const response = await fetch(`https://fakestoreapi.com/products/${Id}`);
      const data = await response.json();
      setDetail(data);}
      catch(err) {
@@ -22,13 +22,13 @@ const ItemDetailContainer = () => {
      finally{
        setLoading(false);
      }
-   }
+   };
    getDetail();
- },[itemId]);
+ },[Id]);
 
     return(
-        <>{loading ? <p>cargando detalles...</p> : error ? <p>Error 404</p> : 'Todo bien'}
-          {detail.map(detail => <ItemDetail key={detail.id} detail={detail}/>)}
+        <>{loading ? <p>cargando detalles...</p> : <ItemDetail detail={detail}/>}
+         
         </>
         
     )

@@ -1,3 +1,6 @@
 /*MONTSERRAT*/
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@700&display=swap');
 
+*{
+    font-family:'Maven Pro', sans-serif;
+}
