@@ -2,6 +2,7 @@ import React from "react";
 import ItemCount from "../../components/ItemCount/ItemCount";
 
 const ItemDetail = ({detail}) => {
+    
     return(
     <div key={detail.id}>
         <h2 className="text-2xl md:text-3xl font-medium mt-3 text-center mt-40">{detail.title}</h2>
