@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 
-@layer components{
-  .card{
-    @apply rounded-xl shadow-lg
-  }
-}
-
 
 nav{
   font-family: 'Maven Pro', sans-serif;

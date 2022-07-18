@@ -19,8 +19,7 @@ const ItemListContainer =  (prop) => {
       const URL = categoryId
       ?  `https://fakestoreapi.com/products/category/${categoryId}`
       : 'https://fakestoreapi.com/products'
-
-
+      
       const getProducts = async () =>{
       try {const response = await fetch(URL);
            const data = await response.json();
