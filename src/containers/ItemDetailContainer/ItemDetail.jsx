@@ -1,13 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import ItemCount from "../../components/ItemCount/ItemCount";
 import { Link } from "react-router-dom";
+import { cartContext } from "../../Context/CartContext";
 
 const ItemDetail = ({detail}) => {
+    const {addProducts} = useContext(cartContext);
     
     const [compraTerminada, setCompraTerminada] = useState(false)
 
     const onAdd = (cuenta) => {
         setCompraTerminada(true)
+        addProducts({...detail, quantity:cuenta})
       }
 
 
@@ -25,8 +28,8 @@ const ItemDetail = ({detail}) => {
         {compraTerminada ? 
          <button className="flex mx-auto">
             <Link className="uppercase mx-auto text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-20" to="/cart">Finalizar Compra</Link>
-         </button>:
-         <ItemCount  stock = {5} initial = {1} onAdd={onAdd}/>}
+         </button>
+        :<ItemCount  stock = {5} initial = {1} onAdd={onAdd}/>}
      </div>
     </div>
     
