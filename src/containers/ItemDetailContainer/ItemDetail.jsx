@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { cartContext } from "../../Context/CartContext";
 
 const ItemDetail = ({detail}) => {
-    const {addProducts} = useContext(cartContext);
+    const {addProduct} = useContext(cartContext);
     
     const [compraTerminada, setCompraTerminada] = useState(false)
 
     const onAdd = (cuenta) => {
         setCompraTerminada(true)
-        addProducts({...detail, quantity:cuenta})
+        addProduct({...detail, quantity:cuenta})
       }
 
 
