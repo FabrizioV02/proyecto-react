@@ -45,8 +45,19 @@ const CartCustomProvider = ( {children} ) => {
         return products.some(products => products.id === id);
     }
 
+    const totalCost = () => {
+        let total = 0
+        products.forEach(products => {
+          total += products.quantity * products.price
+        })
+    
+        return (Math.round
+            (total)
+        )
+    }
+
     return(
-        <Provider value={{products, addProduct, deleteProduct, clear, qtyProducts }}>
+        <Provider value={{products, addProduct, deleteProduct, clear, qtyProducts, totalCost }}>
             {children}
         </Provider>
     );

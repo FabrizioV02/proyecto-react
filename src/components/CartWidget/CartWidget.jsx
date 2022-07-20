@@ -6,8 +6,8 @@ const Cartwidget = () => {
   const { qtyProducts } = useContext(cartContext);
 
     return (
-      <a href="#">
-        <p className="text-center">{qtyProducts}</p>
+      <a href="#" className="flex">
+        <p className="text-center my-auto">{qtyProducts}</p>
         <img className='h-8 w-9' src={Cart}/>
       </a>
     );

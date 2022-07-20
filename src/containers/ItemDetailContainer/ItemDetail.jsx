@@ -26,10 +26,17 @@ const ItemDetail = ({detail}) => {
      </div>
      <div className="mt-20 mb-10 py-5 flex-col items-center justify-center">
         {compraTerminada ? 
+        <di>
          <button className="flex mx-auto">
             <Link className="uppercase mx-auto text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-20" to="/cart">Finalizar Compra</Link>
          </button>
-        :<ItemCount  stock = {5} initial = {1} onAdd={onAdd}/>}
+         <br />
+         <button className="flex mx-auto">
+            <Link className="uppercase mx-auto text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-20" to="/">Continuar Comprando</Link>
+         </button>
+        </di>
+         
+        :<ItemCount  stock = {5} initial = {0} onAdd={onAdd}/>}
      </div>
     </div>
     
