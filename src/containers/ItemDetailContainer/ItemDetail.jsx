@@ -16,17 +16,17 @@ const ItemDetail = ({detail}) => {
 
     return(
     <div key={detail.id}>
-        <h2 className="text-2xl md:text-3xl font-medium mt-3 text-center mt-40">{detail.title}</h2>
+        <h2 className="text-2xl md:text-3xl font-medium mt-3 text-center mt-[3rem]">{detail.title}</h2>
      <div>
-        <img className="my-20 mx-auto max-w-xs" src={detail.image} alt="" />
-        <p className="my-20 text-center text-xl">{detail.description}</p>
+        <img className="mt-20 mb-[3rem] mx-auto max-w-xs" src={detail.image} alt="" />
+        <p className=" text-center mb-[3rem] text-xl">{detail.description}</p>
      </div>
      <div>
          <p className="text-center text-black text-5xl mt-3">${detail.price}</p>
      </div>
-     <div className="mt-20 mb-10 py-5 flex-col items-center justify-center">
+     <div className=" mb-10 py-5 flex-col items-center justify-center">
         {compraTerminada ? 
-        <di>
+        <div className="">
          <button className="flex mx-auto">
             <Link className="uppercase mx-auto text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-20" to="/cart">Finalizar Compra</Link>
          </button>
@@ -34,7 +34,7 @@ const ItemDetail = ({detail}) => {
          <button className="flex mx-auto">
             <Link className="uppercase mx-auto text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-20" to="/">Continuar Comprando</Link>
          </button>
-        </di>
+        </div>
          
         :<ItemCount  stock = {5} initial = {0} onAdd={onAdd}/>}
      </div>
