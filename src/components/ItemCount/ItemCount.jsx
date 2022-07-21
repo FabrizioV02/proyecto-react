@@ -22,13 +22,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const add = () =>{
         onAdd(cuenta);
     }
+
     
   return (
     <>
-        <div className='contador-controles flex text mt-20'>
-            <button className='mx-auto uppercase row mx-auto text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-5' onClick={restar}>-</button>
+        <div className='contador-controles flex text mt-[3rem] items-center justify-center'>
+            <button className='mx-[2rem] uppercase row text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-5' onClick={restar}>-</button>
             <p>{cuenta}</p>
-            <button className='mx-auto uppercase row mx-auto text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-5' onClick={sumar}>+</button>
+            <button className='mx-[2rem] uppercase row text-xl text-center bg-black text-white py-2 rounded-lg font-semibold mt-4 hover:bg-red-700 focus:scale-95 transition-all duration-200 ease-out px-5' onClick={sumar}>+</button>
         </div>
         {
             cuenta >= 1 ?
