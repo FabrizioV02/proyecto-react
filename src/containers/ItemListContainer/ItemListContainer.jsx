@@ -1,42 +1,37 @@
 import React, { useState, useEffect } from "react";
 import Itemlist from "./ItemList";
 import { useParams } from 'react-router-dom';
+import { db } from "../../firebase/firebase";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 
 const ItemListContainer =  (prop) => {
-
-  const { categoryId } = useParams();
 
     const { name } = prop;
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState (false);
     const [loading, setLoading] = useState (true);
 
-    
-    
+    const { categoryId } = useParams();
+
     useEffect(() =>{
+    const q = categoryId
+    ? query(collection(db,'productos'), where('category', '==', categoryId))
+    : collection(db,'productos');
 
-      const URL = categoryId
-      ?  `https://fakestoreapi.com/products/category/${categoryId}`
-      : 'https://fakestoreapi.com/products'
-      
-      const getProducts = async () =>{
-      try {const response = await fetch(URL);
-           const data = await response.json();
-           setProductos(data);
-          }
-        catch(err) {
-          console.log(err);
-          setError(true);
-        }
-        finally{
-          setLoading(false);
-        }
-        
-      }
-      getProducts();
-    },[categoryId]);
-
+      getDocs(q)
+      .then(result =>{
+         const lista = result.docs.map(doc => {
+           return{
+             id: doc.id,
+             ...doc.data(),
+           }
+         })
+         setProductos(lista)
+      })
+      .catch(error => console.log(error))
+      .finally(() => setLoading(false))
+    }, [categoryId]);
    
     return (
         <>
